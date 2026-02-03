@@ -30,7 +30,7 @@ html {
 }
 
 nav {
-  background: pink;
+  background: #111126;
   padding: 1.5rem var(--padding);
   display: flex;
   justify-content: space-between;
