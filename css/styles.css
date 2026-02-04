@@ -93,6 +93,7 @@ nav ul li a:hover::after {
   transition: 0.4s ease;
   position: relative;
   border: 2px solid transparent;
+  cursor: pointer;
 }
 
 .btn:hover {
@@ -112,6 +113,56 @@ nav ul li a:hover::after {
   transform: scale(0.95);
   box-shadow: 0 0 5px var(--secondary-color),
               0 0 10px var(--primary-color);
+}
+
+/* Language Menu Styles */
+.language-menu {
+  position: absolute;
+  top: 100%;
+  margin-top: 0.5rem;
+  background: #111126;
+  border-radius: 1rem;
+  padding: 0.5rem;
+  display: none;
+  flex-direction: column;
+  gap: 0.5rem;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.5);
+  min-width: 150px;
+}
+
+/* Position menu on right for LTR languages */
+[dir="ltr"] .language-menu {
+  right: 0;
+  left: auto;
+}
+
+/* Position menu on left for RTL (Arabic) */
+[dir="rtl"] .language-menu {
+  left: 0;
+  right: auto;
+}
+
+.language-menu.show {
+  display: flex;
+}
+
+.language-menu button {
+  background: transparent;
+  color: var(--font-color);
+  border: 2px solid transparent;
+  padding: 0.6rem 1.2rem;
+  border-radius: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-family: "Ubuntu", sans-serif;
+  font-size: 0.95rem;
+}
+
+.language-menu button:hover {
+  background: linear-gradient(135deg, var(--secondary-color), var(--primary-color));
+  border-color: var(--secondary-color);
+  transform: translateX(5px);
 }
 
 .content {
@@ -490,5 +541,12 @@ footer p {
 
   footer p {
     font-size: 1rem;
+  }
+  
+  /* Center language menu on mobile for both LTR and RTL */
+  .language-menu {
+    right: auto !important;
+    left: 50% !important;
+    transform: translateX(-50%);
   }
 }
